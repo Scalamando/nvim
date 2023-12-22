@@ -22,3 +22,10 @@ end, { desc = "Toogle Terminal (floating)" })
 vim.keymap.set("t", "<A-i>", function()
   vim.cmd.ToggleTerm('direction="float"')
 end, { desc = "Toogle Terminal (floating)" })
+
+
+-- center view after jumps
+vim.keymap.set("n", "<C-d>", "<C-d>", { desc = "Jump half page down" })
+vim.keymap.set("n", "<C-u>", "<C-u>", { desc = "Jump half page up" })
+vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result" })
