@@ -7,6 +7,9 @@ vim.filetype.add({
   extension = {
     bru = "bruno",
   },
+  pattern = {
+    [".*%.blade%.php"] = "blade",
+  },
 })
 
 -- Options
