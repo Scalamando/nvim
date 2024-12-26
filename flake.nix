@@ -44,13 +44,16 @@
         general = with pkgs; [
           fd
           fzf
-          lua-language-server
           nix-doc
-          nixd
           ripgrep
           stdenv.cc.cc
           universal-ctags
           xclip
+          # lsps
+          lua-language-server
+          nixd
+          vtsls
+          vue-language-server
           # formatters
           alejandra
           just
