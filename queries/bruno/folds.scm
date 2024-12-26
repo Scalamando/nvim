@@ -1,4 +1,0 @@
-[
-	(dictionary)
-	(array)
-] @fold
