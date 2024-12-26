@@ -5,7 +5,13 @@ return {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
-        volar = {},
+        volar = {
+          init_options = {
+            vue = {
+              hybridMode = true,
+            },
+          },
+        },
         vtsls = {
           filetypes = {
             'javascript',
@@ -29,11 +35,13 @@ return {
               },
               tsserver = {
                 globalPlugins = {
-                  name = '@vue/typescript-plugin',
-                  location = vim.fs.dirname(vim.fn.exepath 'vue-language-server') .. '/../lib/node_modules/@vue/language-server',
-                  languages = { 'vue' },
-                  configNamespace = 'typescript',
-                  enableForWorkspaceTypeScriptVersions = true,
+                  {
+                    name = '@vue/typescript-plugin',
+                    location = vim.fs.dirname(vim.fn.exepath 'vue-language-server') .. '/../lib/node_modules/@vue/language-server',
+                    languages = { 'vue' },
+                    configNamespace = 'typescript',
+                    enableForWorkspaceTypeScriptVersions = true,
+                  },
                 },
               },
             },
