@@ -8,6 +8,10 @@
       url = "github:Hashino/doing.nvim";
       flake = false;
     };
+    "plugins-snacks-nvim" = {
+      url = "github:folke/snacks.nvim?ref=refs/tags/stable";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -90,6 +94,10 @@
         ];
         gitPlugins = with pkgs.neovimPlugins; [
           doing-nvim
+          (snacks-nvim.overrideAttrs
+            {
+              nvimRequireCheck = "snacks";
+            })
         ];
       };
 
@@ -99,7 +107,8 @@
 
       extraPython3Packages = {};
 
-      extraLuaPackages = {};
+      extraLuaPackages = {
+      };
     };
 
     packageDefinitions = {

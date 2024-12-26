@@ -47,11 +47,29 @@
         "type": "github"
       }
     },
+    "plugins-snacks-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734253168,
+        "narHash": "sha256-0RLVkdV/R+9eXRCIj8MbpdAx7Tq4h6aRppEFzZC+ILw=",
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "rev": "6a837597b3570df88946c69cca7ab810ca7f05f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "ref": "refs/tags/stable",
+        "repo": "snacks.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
-        "plugins-doing-nvim": "plugins-doing-nvim"
+        "plugins-doing-nvim": "plugins-doing-nvim",
+        "plugins-snacks-nvim": "plugins-snacks-nvim"
       }
     }
   },
