@@ -2,11 +2,11 @@
   "nodes": {
     "nixCats": {
       "locked": {
-        "lastModified": 1734439713,
-        "narHash": "sha256-4L5XE5WuQHlz+TuDgsIvxVnQP7xXLUOHNK02UWcbVFE=",
+        "lastModified": 1734988924,
+        "narHash": "sha256-QAG3usEJxvxv/AN7csMaFkGbLKF1NEuUkt0UDNr2lrM=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "38a067e5462dd1350587187420cd38831c1c9758",
+        "rev": "97b1341e0a6a9e59707bfc0f4185e6a2cb784891",
         "type": "github"
       },
       "original": {
@@ -17,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1734435836,
-        "narHash": "sha256-kMBQ5PRiFLagltK0sH+08aiNt3zGERC2297iB6vrvlU=",
+        "lastModified": 1734988233,
+        "narHash": "sha256-Ucfnxq1rF/GjNP3kTL+uTfgdoE9a3fxDftSfeLIS8mA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4989a246d7a390a859852baddb1013f825435cee",
+        "rev": "de1864217bfa9b5845f465e771e0ecb48b30e02d",
         "type": "github"
       },
       "original": {
@@ -34,32 +34,16 @@
     "plugins-doing-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1734676466,
-        "narHash": "sha256-L/XJc6dVHGdP5eWc13TD2KQ2iVWqfg8B8YSDSnkW0dw=",
+        "lastModified": 1735179541,
+        "narHash": "sha256-LpgGXVGjlzGm6rHM8e8wKUZHWo7V+a+BQUfRdZ28F3I=",
         "owner": "Hashino",
         "repo": "doing.nvim",
-        "rev": "e203761a867e51cf3d9b5ed4f206faf5041e5a8e",
+        "rev": "3d7dcd66cb0b95fe25370ea7b8f64c30a36043eb",
         "type": "github"
       },
       "original": {
         "owner": "Hashino",
         "repo": "doing.nvim",
-        "type": "github"
-      }
-    },
-    "plugins-snacks-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734701557,
-        "narHash": "sha256-Gvd2QfAgrpRxJvZ41LAOPRrDGwVdeZUb8BGrzzcpcHU=",
-        "owner": "folke",
-        "repo": "snacks.nvim",
-        "rev": "98df370703b3c47a297988f3e55ce99628639590",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "snacks.nvim",
         "type": "github"
       }
     },
@@ -67,8 +51,7 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
-        "plugins-doing-nvim": "plugins-doing-nvim",
-        "plugins-snacks-nvim": "plugins-snacks-nvim"
+        "plugins-doing-nvim": "plugins-doing-nvim"
       }
     }
   },

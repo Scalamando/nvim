@@ -13,7 +13,7 @@ return {
           local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
           local location = MiniStatusline.section_location { trunc_width = 75 }
           local search = MiniStatusline.section_searchcount { trunc_width = 75 }
-          local doing = require('doing.api').status()
+          local doing = require('doing').status()
 
           return MiniStatusline.combine_groups {
             { hl = mode_hl, strings = { mode } },

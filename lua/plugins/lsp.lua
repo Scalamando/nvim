@@ -72,7 +72,7 @@ return {
             return vim.lsp.buf.code_action { apply = true, context = { only = { 'source' }, diagnostics = {} } }
           end, 'Source Action')
           map('<leader>cr', vim.lsp.buf.rename, 'Rename')
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
+          map('<leader>bs', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
           map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)

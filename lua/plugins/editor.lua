@@ -105,7 +105,7 @@ return {
         {
           mode = { 'n', 'v' },
           { '<leader>c', group = 'code' },
-          { '<leader>d', group = 'document' },
+          { '<leader>d', group = 'doing' },
           { '<leader>f', group = 'file' },
           { '<leader>s', group = 'search' },
           { '<leader>g', group = 'git' },

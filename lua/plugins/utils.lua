@@ -26,12 +26,6 @@ return {
         },
       },
     },
-    -- stylua: ignore
-    keys = {
-      { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-      { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
-      { "<leader>dps", function() Snacks.profiler.scratch() end, desc = "Profiler Scratch Buffer" },
-    },
   },
 
   {
@@ -40,12 +34,12 @@ return {
     keys = {
       {
         '<leader>de',
-        require('doing.api').edit,
+        require('doing').edit,
         { desc = 'Doing: Edit tasks' },
       },
       {
         '<leader>dn',
-        require('doing.api').done,
+        require('doing').done,
         { desc = 'Doing: Mark current task as done' },
       },
     },

@@ -8,14 +8,9 @@
       url = "github:Hashino/doing.nvim";
       flake = false;
     };
-    "plugins-snacks-nvim" = {
-      url = "github:folke/snacks.nvim";
-      flake = false;
-    };
   };
 
   outputs = {
-    self,
     nixpkgs,
     nixCats,
     ...
@@ -31,15 +26,7 @@
       (utils.standardPluginOverlay inputs)
     ];
 
-    categoryDefinitions = {
-      pkgs,
-      settings,
-      categories,
-      extra,
-      name,
-      mkNvimPlugin,
-      ...
-    } @ packageDef: {
+    categoryDefinitions = {pkgs, ...}: {
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           fd
@@ -91,6 +78,7 @@
           nvim-ts-autotag
           nvim-web-devicons
           plenary-nvim
+          snacks-nvim
           telescope-fzf-native-nvim
           telescope-nvim
           telescope-ui-select-nvim
@@ -102,61 +90,20 @@
         ];
         gitPlugins = with pkgs.neovimPlugins; [
           doing-nvim
-          snacks-nvim
         ];
       };
 
-      optionalPlugins = {
-        gitPlugins = with pkgs.neovimPlugins; [];
-        general = with pkgs.vimPlugins; [];
-      };
+      environmentVariables = {};
 
-      sharedLibraries = {
-        general = with pkgs; [];
-      };
+      extraWrapperArgs = {};
 
-      # environmentVariables:
-      # this section is for environmentVariables that should be available
-      # at RUN TIME for plugins. Will be available to path within neovim terminal
-      environmentVariables = {
-        # test = {
-        #   CATTESTVAR = "It worked!";
-        # };
-      };
+      extraPython3Packages = {};
 
-      # If you know what these are, you can provide custom ones by category here.
-      # If you dont, check this link out:
-      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/setup-hooks/make-wrapper.sh
-      extraWrapperArgs = {
-        # test = [
-        #   '' --set CATTESTVAR2 "It worked again!"''
-        # ];
-      };
-
-      # lists of the functions you would have passed to
-      # python.withPackages or lua.withPackages
-
-      # get the path to this python environment
-      # in your lua config via
-      # vim.g.python3_host_prog
-      # or run from nvim terminal via :!<packagename>-python3
-      extraPython3Packages = {
-        test = _: [];
-      };
-      # populates $LUA_PATH and $LUA_CPATH
-      extraLuaPackages = {
-        test = [(_: [])];
-      };
+      extraLuaPackages = {};
     };
 
-    # And then build a package with specific categories from above here:
-    # All categories you wish to include must be marked true,
-    # but false may be omitted.
-    # This entire set is also passed to nixCats for querying within the lua.
-
-    # see :help nixCats.flake.outputs.packageDefinitions
     packageDefinitions = {
-      nvim = {pkgs, ...}: {
+      nvim = {...}: {
         settings = {
           wrapRc = true;
           aliases = ["vim"];
