@@ -112,12 +112,12 @@ return {
               desc = 'Select TS workspace version',
             },
           },
-          setup = {
-            vtsls = function(_, opts)
-              opts.settings.javascript = vim.tbl_deep_extend('force', {}, opts.settings.typescript, opts.settings.javascript or {})
-            end,
-          },
         },
+      },
+      setup = {
+        vtsls = function(_, opts)
+          opts.settings.javascript = vim.tbl_deep_extend('force', {}, opts.settings.typescript, opts.settings.javascript or {})
+        end,
       },
     },
   },
