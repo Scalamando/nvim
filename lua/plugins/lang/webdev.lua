@@ -5,6 +5,7 @@ return {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
+        -- Vue
         volar = {
           init_options = {
             vue = {
@@ -21,6 +22,20 @@ return {
             end
           end,
         },
+        -- Tailwindcss
+        tailwindcss = {
+          settings = {
+            tailwindCSS = {
+              -- For Phoenix projects
+              includeLanguages = {
+                elixir = 'html-eex',
+                eelixir = 'html-eex',
+                heex = 'html-eex',
+              },
+            },
+          },
+        },
+        -- Typescript (and needed for others)
         vtsls = {
           filetypes = {
             'javascript',
@@ -120,6 +135,13 @@ return {
               end,
               desc = 'Select TS workspace version',
             },
+          },
+        },
+        -- Linter
+        eslint = {
+          settings = {
+            workingDirectories = { mode = 'auto' },
+            format = false,
           },
         },
       },

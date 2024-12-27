@@ -27,6 +27,7 @@ return {
         graphql = { 'prettier' },
         handlebars = { 'prettier' },
         html = { 'prettier' },
+        go = { 'goimports', 'gofumpt' },
         javascript = { 'prettier' },
         javascriptreact = { 'prettier' },
         json = { 'prettier' },
@@ -44,6 +45,18 @@ return {
       },
       formatters = {
         injected = { options = { ignore_errors = true } },
+      },
+    },
+  },
+
+  { -- Filetype icons
+    'echasnovski/mini.icons',
+    opts = {
+      file = {
+        ['.go-version'] = { glyph = '', hl = 'MiniIconsBlue' },
+      },
+      filetype = {
+        gotmpl = { glyph = '󰟓', hl = 'MiniIconsGrey' },
       },
     },
   },

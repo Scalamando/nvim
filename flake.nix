@@ -41,14 +41,23 @@
           universal-ctags
           xclip
           # lsps
+          gopls
+          intelephense
           lua-language-server
           nixd
+          tailwindcss-language-server
           vtsls
           vue-language-server
-          # formatters
+          # formatters and linters
           alejandra
+          gofumpt
+          gomodifytags
+          gotools
+          impl
           just
           nodePackages.prettier
+          php84Packages.php-codesniffer
+          php84Packages.php-cs-fixer
           rubyfmt
           stylua
         ];
