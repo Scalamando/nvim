@@ -80,7 +80,7 @@ return {
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Search Diagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search Resume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Sexisting Buffers' })
+      vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Search existing Buffers' })
       vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = 'Search Files' })
       vim.keymap.set('n', '<leader>/', builtin.live_grep, { desc = 'Search by Grep' })
       vim.keymap.set('n', '<leader>s/', function()
