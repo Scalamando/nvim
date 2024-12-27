@@ -13,10 +13,7 @@ return {
           virtual_text = {
             spacing = 4,
             source = 'if_many',
-            prefix = '●',
-            -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-            -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-            -- prefix = "icons",
+            prefix = "icons",
           },
           severity_sort = true,
           signs = {
@@ -77,22 +74,29 @@ return {
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
 
+          -- inlay hints
           if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
             map('<leader>uh', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, 'Toggle Inlay Hints')
           end
+
         end,
       })
 
+      local capabilities = vim.tbl_deep_extend(
+        'force',
+        {},
+        vim.lsp.protocol.make_client_capabilities(),
+        require('blink.cmp').get_lsp_capabilities() or {},
+        opts.capabilities or {}
+      )
+
       for server_name, config in pairs(opts.servers) do
-        require('lspconfig')[server_name].setup {
-          capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities),
-          settings = opts.servers[server_name],
-          filetypes = (opts.servers[server_name] or {}).filetypes,
-          cmd = (opts.servers[server_name] or {}).cmd,
-          root_pattern = (opts.servers[server_name] or {}).root_pattern,
-        }
+        local server_opts = vim.tbl_deep_extend('force', {
+          capabilities = vim.deepcopy(capabilities),
+        }, config or {})
+        require('lspconfig')[server_name].setup(server_opts)
       end
     end,
   },

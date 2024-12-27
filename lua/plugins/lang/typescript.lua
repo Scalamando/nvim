@@ -10,7 +10,16 @@ return {
             vue = {
               hybridMode = true,
             },
+            typescript = {
+              tsdk = vim.fs.dirname(vim.fn.exepath 'vtsls') .. '/../lib/vtsls-language-server/node_modules/typescript/lib',
+            },
           },
+          on_new_config = function(new_config, new_root_dir)
+            local lib_path = vim.fs.find('node_modules/typescript/lib', { path = new_root_dir, upward = true })[1]
+            if lib_path then
+              new_config.init_options.typescript.tsdk = lib_path
+            end
+          end,
         },
         vtsls = {
           filetypes = {
@@ -62,47 +71,47 @@ return {
           },
           keys = {
             {
-              'gD',
+              'gd',
               function()
                 local params = vim.lsp.util.make_position_params()
                 util.lsp.execute {
-                  command = 'typescript.goToSourceDefinition',
-                  arguments = { params.textDocument.uri, params.position },
+                  command = 'typescript.gotosourcedefinition',
+                  arguments = { params.textdocument.uri, params.position },
                   open = true,
                 }
               end,
-              desc = 'Goto Source Definition',
+              desc = 'goto source definition',
             },
             {
-              'gR',
+              'gr',
               function()
                 util.lsp.execute {
-                  command = 'typescript.findAllFileReferences',
+                  command = 'typescript.findallfilereferences',
                   arguments = { vim.uri_from_bufnr(0) },
                   open = true,
                 }
               end,
-              desc = 'File References',
+              desc = 'file references',
             },
             {
               '<leader>co',
-              util.lsp.action['source.organizeImports'],
-              desc = 'Organize Imports',
+              util.lsp.action['source.organizeimports'],
+              desc = 'organize imports',
             },
             {
-              '<leader>cM',
-              util.lsp.action['source.addMissingImports.ts'],
-              desc = 'Add missing imports',
+              '<leader>cm',
+              util.lsp.action['source.addmissingimports.ts'],
+              desc = 'add missing imports',
             },
             {
               '<leader>cu',
-              util.lsp.action['source.removeUnused.ts'],
-              desc = 'Remove unused imports',
+              util.lsp.action['source.removeunused.ts'],
+              desc = 'remove unused imports',
             },
             {
-              '<leader>cD',
-              util.lsp.action['source.fixAll.ts'],
-              desc = 'Fix all diagnostics',
+              '<leader>cd',
+              util.lsp.action['source.fixall.ts'],
+              desc = 'fix all diagnostics',
             },
             {
               '<leader>cV',
