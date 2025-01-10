@@ -11,7 +11,6 @@ end
 return {
   { -- Snacks utils
     'folke/snacks.nvim',
-    name = 'snacks-nvim',
     opts = {
       bigfile = { enabled = true },
       quickfile = { enabled = true },

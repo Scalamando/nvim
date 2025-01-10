@@ -8,10 +8,6 @@
       url = "github:Hashino/doing.nvim";
       flake = false;
     };
-    "plugins-snacks-nvim" = {
-      url = "github:folke/snacks.nvim?ref=refs/tags/stable";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -79,10 +75,10 @@
           lazygit-nvim
           luasnip
           mini-ai
+          mini-icons
           mini-nvim
           mini-pairs
           mini-statusline
-          mini-icons
           mini-surround
           neo-tree-nvim
           noice-nvim
@@ -106,10 +102,6 @@
         ];
         gitPlugins = with pkgs.neovimPlugins; [
           doing-nvim
-          (snacks-nvim.overrideAttrs
-            {
-              nvimRequireCheck = "snacks";
-            })
         ];
       };
 

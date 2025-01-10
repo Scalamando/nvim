@@ -165,7 +165,6 @@ return {
 
   {
     'folke/snacks.nvim',
-    name = 'snacks-nvim',
     opts = {
       indent = { enabled = true },
       input = { enabled = true },
