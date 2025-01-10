@@ -56,6 +56,7 @@
           impl
           just
           nodePackages.prettier
+          nodePackages.eslint
           php84Packages.php-codesniffer
           php84Packages.php-cs-fixer
           rubyfmt
@@ -80,6 +81,7 @@
           mini-nvim
           mini-pairs
           mini-statusline
+          mini-icons
           mini-surround
           neo-tree-nvim
           noice-nvim
