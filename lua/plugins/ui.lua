@@ -50,6 +50,13 @@ return {
     end,
   },
 
+  { -- Terminal
+    'akinsho/toggleterm.nvim',
+    opts = {
+      open_mapping = [[<c-\>]],
+    },
+  },
+
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',

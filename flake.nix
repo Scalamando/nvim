@@ -94,6 +94,7 @@
           telescope-fzf-native-nvim
           telescope-nvim
           telescope-ui-select-nvim
+          toggleterm-nvim
           trouble-nvim
           ts-comments-nvim
           vim-sleuth
