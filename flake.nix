@@ -50,6 +50,7 @@
           vue-language-server
           # formatters and linters
           alejandra
+          clang-tools
           gofumpt
           gomodifytags
           gotools
