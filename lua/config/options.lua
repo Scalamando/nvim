@@ -40,3 +40,4 @@ opt.updatetime = 250 -- Decrease update time
 opt.virtualedit = 'block' -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = 'longest:full,full' -- Command-line completion mode
 opt.wrap = false -- Disable line wrap
+opt.swapfile = false -- Disable swap files
