@@ -41,6 +41,12 @@ return {
       filetype = {
         dotenv = { glyph = '', hl = 'MiniIconsYellow' },
       },
+      extension = {
+        ['test.ts'] = { glyph = '' },
+        ['test.js'] = { glyph = '' },
+        ['spec.ts'] = { glyph = '' },
+        ['spec.js'] = { glyph = '' },
+      },
     },
     init = function()
       package.preload['nvim-web-devicons'] = function()
