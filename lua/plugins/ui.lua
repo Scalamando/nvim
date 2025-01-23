@@ -60,7 +60,7 @@ return {
     'akinsho/toggleterm.nvim',
     ---@type ToggleTermConfig
     opts = {
-      open_mapping = [[<C-n>]],
+      open_mapping = [[<M-n>]],
       direction = 'vertical',
       on_create = function(t)
         vim.api.nvim_buf_set_keymap(t.bufnr, 't', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
