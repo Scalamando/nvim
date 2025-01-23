@@ -4,7 +4,6 @@ end
 
 -- General QoL
 map('n', '<leader>qq', '<CMD>qa<CR>', { desc = 'Quit All' })
-map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map({ 'n', 'i', 'x', 's' }, '<C-s>', '<CMD>w<CR><ESC>', { desc = 'Save file' })
 -- Clear search highlight
 map('n', '<Esc>', '<CMD>nohlsearch<CR>')

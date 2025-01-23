@@ -62,6 +62,9 @@ return {
     opts = {
       open_mapping = [[<C-n>]],
       direction = 'vertical',
+      on_create = function(t)
+        vim.api.nvim_buf_set_keymap(t.bufnr, 't', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+      end,
       size = function(term)
         if term.direction == 'horizontal' then
           return 15
