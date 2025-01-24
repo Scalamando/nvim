@@ -148,6 +148,27 @@ return {
   },
 
   {
+    'ThePrimeagen/refactoring.nvim',
+    name = 'refactoring-nvim',
+    keys = {
+      {
+        '<leader>r',
+        function()
+          require('telescope').extensions.refactoring.refactors()
+        end,
+        mode = { 'n', 'x' },
+        desc = "Refactoring"
+      },
+    },
+    lazy = false,
+    config = function()
+      require('refactoring').setup {
+        show_success_message = true,
+      }
+    end,
+  },
+
+  {
     'folke/lazydev.nvim',
     ft = 'lua',
     cmd = 'LazyDev',

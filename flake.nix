@@ -8,6 +8,10 @@
       url = "github:Hashino/doing.nvim";
       flake = false;
     };
+    "plugins-refactoring-nvim" = {
+      url = "github:ThePrimeagen/refactoring.nvim";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -103,6 +107,7 @@
         ];
         gitPlugins = with pkgs.neovimPlugins; [
           doing-nvim
+          refactoring-nvim
         ];
       };
 
