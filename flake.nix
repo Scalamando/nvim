@@ -57,7 +57,7 @@
           impl
           just
           nodePackages.prettier
-          nodePackages.eslint
+          vscode-langservers-extracted
           php84Packages.php-codesniffer
           php84Packages.php-cs-fixer
           rubyfmt
