@@ -200,6 +200,11 @@ return {
 
   {
     'tpope/vim-fugitive',
+    keys = {
+      {
+        "<leader>gd", "<cmd>Gvdiffsplit!<cr>", desc = "Git 3-way merge"
+      }
+    },
   },
 
   {
