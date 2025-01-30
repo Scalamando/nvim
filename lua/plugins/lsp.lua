@@ -104,13 +104,22 @@ return {
   -- Import language specific configurations
   { import = 'plugins.lang' },
 
+  {
+    'saghen/blink.compat',
+    -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+    lazy = true,
+    -- make sure to set opts so that lazy.nvim calls blink.compat's setup
+    opts = {},
+  },
+
   { -- Completion with support for LSPs and external sources
     'saghen/blink.cmp',
-    name = 'blink-cmp',
     dependencies = {
       { 'rafamadriz/friendly-snippets' },
       { 'L3MON4D3/LuaSnip', name = 'luasnip' },
+      { 'saghen/blink.compat' },
     },
+    lazy = false,
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -151,21 +160,10 @@ return {
         },
       },
       snippets = {
-        expand = function(snippet)
-          require('luasnip').lsp_expand(snippet)
-        end,
-        active = function(filter)
-          if filter and filter.direction then
-            return require('luasnip').jumpable(filter.direction)
-          end
-          return require('luasnip').in_snippet()
-        end,
-        jump = function(direction)
-          require('luasnip').jump(direction)
-        end,
+        preset = 'luasnip',
       },
       sources = {
-        default = { 'lsp', 'path', 'luasnip', 'buffer', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'codecompanion' },
         providers = {
           lazydev = {
             name = 'LazyDev',

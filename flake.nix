@@ -73,6 +73,7 @@
       startupPlugins = {
         general = with pkgs.vimPlugins; [
           blink-cmp
+          blink-compat
           catppuccin-nvim
           conform-nvim
           fidget-nvim
