@@ -13,7 +13,7 @@ return {
           virtual_text = {
             spacing = 4,
             source = 'if_many',
-            prefix = "icons",
+            prefix = 'icons',
           },
           severity_sort = true,
           signs = {
@@ -80,7 +80,6 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, 'Toggle Inlay Hints')
           end
-
         end,
       })
 
