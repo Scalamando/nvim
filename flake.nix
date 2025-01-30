@@ -12,10 +12,6 @@
       url = "github:ThePrimeagen/refactoring.nvim";
       flake = false;
     };
-    "plugins-minuet-ai-nvim" = {
-      url = "github:milanglacier/minuet-ai.nvim";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -75,6 +71,7 @@
           blink-cmp
           blink-compat
           catppuccin-nvim
+          codecompanion-nvim
           conform-nvim
           fidget-nvim
           friendly-snippets
@@ -113,7 +110,6 @@
         ];
         gitPlugins = with pkgs.neovimPlugins; [
           doing-nvim
-          minuet-ai-nvim
           refactoring-nvim
         ];
       };
