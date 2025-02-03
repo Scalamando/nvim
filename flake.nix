@@ -8,10 +8,6 @@
       url = "github:Hashino/doing.nvim";
       flake = false;
     };
-    "plugins-refactoring-nvim" = {
-      url = "github:ThePrimeagen/refactoring.nvim";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -23,7 +19,7 @@
     luaPath = "${./.}";
     forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
     extra_pkg_config = {
-      # allowUnfree = true;
+      allowUnfree = true;
     };
 
     dependencyOverlays = [
@@ -97,6 +93,7 @@
           nvim-ts-autotag
           nvim-web-devicons
           plenary-nvim
+          refactoring-nvim
           snacks-nvim
           telescope-fzf-native-nvim
           telescope-nvim
@@ -110,7 +107,6 @@
         ];
         gitPlugins = with pkgs.neovimPlugins; [
           doing-nvim
-          refactoring-nvim
         ];
       };
 

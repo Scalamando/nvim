@@ -47,28 +47,11 @@
         "type": "github"
       }
     },
-    "plugins-refactoring-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1732076118,
-        "narHash": "sha256-acgj54YEIk1ldEuCT6Zh0qj2yzbcFLLAn2jvIPqI6eA=",
-        "owner": "ThePrimeagen",
-        "repo": "refactoring.nvim",
-        "rev": "2db6d378e873de31d18ade549c2edba64ff1c2e3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ThePrimeagen",
-        "repo": "refactoring.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
-        "plugins-doing-nvim": "plugins-doing-nvim",
-        "plugins-refactoring-nvim": "plugins-refactoring-nvim"
+        "plugins-doing-nvim": "plugins-doing-nvim"
       }
     }
   },

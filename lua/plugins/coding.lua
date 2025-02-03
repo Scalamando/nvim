@@ -149,7 +149,6 @@ return {
 
   {
     'ThePrimeagen/refactoring.nvim',
-    name = 'refactoring-nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       'nvim-lua/plenary.nvim',
