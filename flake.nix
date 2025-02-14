@@ -73,6 +73,7 @@
           friendly-snippets
           fugitive
           gitsigns-nvim
+          grug-far-nvim
           lazy-nvim
           lazydev-nvim
           lazygit-nvim
