@@ -59,6 +59,8 @@
           php84Packages.php-cs-fixer
           rubyfmt
           stylua
+          # tools
+          lazygit
         ];
       };
 
