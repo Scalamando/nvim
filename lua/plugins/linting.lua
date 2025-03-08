@@ -7,7 +7,7 @@ return {
       linters_by_ft = {},
     },
     config = function(_, opts)
-      -- Taken from https://github.dev/LazyVim/LazyVim
+      -- Copied from https://github.dev/LazyVim/LazyVim
 
       local M = {}
       local lint = require 'lint'

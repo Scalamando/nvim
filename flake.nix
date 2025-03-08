@@ -67,7 +67,6 @@
           catppuccin-nvim
           codecompanion-nvim
           conform-nvim
-          fidget-nvim
           friendly-snippets
           fugitive
           gitsigns-nvim
@@ -96,7 +95,6 @@
           toggleterm-nvim
           trouble-nvim
           ts-comments-nvim
-          vim-sleuth
           vim-sleuth
           which-key-nvim
         ];
