@@ -31,27 +31,10 @@
         "type": "github"
       }
     },
-    "plugins-doing-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1741132394,
-        "narHash": "sha256-Y1CU3kj8BCe1Kdxp+25giPX9shsCpKUkVdc+f6Ep+4E=",
-        "owner": "Hashino",
-        "repo": "doing.nvim",
-        "rev": "ede7706a6f7edc1011ae23541b5e4aa618ff736b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Hashino",
-        "repo": "doing.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "nixCats": "nixCats",
-        "nixpkgs": "nixpkgs",
-        "plugins-doing-nvim": "plugins-doing-nvim"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

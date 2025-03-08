@@ -4,10 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
-    "plugins-doing-nvim" = {
-      url = "github:Hashino/doing.nvim";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -108,9 +104,7 @@
           vim-sleuth
           which-key-nvim
         ];
-        gitPlugins = with pkgs.neovimPlugins; [
-          doing-nvim
-        ];
+        gitPlugins = with pkgs.neovimPlugins; [];
       };
 
       environmentVariables = {};

@@ -26,22 +26,4 @@ return {
       },
     },
   },
-
-  {
-    'Hashino/doing.nvim',
-    name = 'doing-nvim',
-    keys = {
-      {
-        '<leader>de',
-        require('doing').edit,
-        { desc = 'Doing: Edit tasks' },
-      },
-      {
-        '<leader>dn',
-        require('doing').done,
-        { desc = 'Doing: Mark current task as done' },
-      },
-    },
-    opts = { ignored_buffers = { 'NvimTree' } },
-  },
 }
