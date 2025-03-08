@@ -36,6 +36,7 @@
           gopls
           intelephense
           lua-language-server
+          marksman
           nixd
           tailwindcss-language-server
           vtsls
@@ -74,6 +75,7 @@
           lazy-nvim
           lazydev-nvim
           luasnip
+          markdown-preview-nvim
           mini-ai
           mini-icons
           mini-nvim
@@ -89,8 +91,10 @@
           nvim-treesitter.withAllGrammars
           nvim-ts-autotag
           nvim-web-devicons
+          outline-nvim
           plenary-nvim
           refactoring-nvim
+          render-markdown-nvim
           snacks-nvim
           toggleterm-nvim
           trouble-nvim
