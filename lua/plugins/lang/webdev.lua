@@ -153,6 +153,25 @@ return {
     },
   },
 
+  { -- Formatting
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        css = { 'prettier' },
+        graphql = { 'prettier' },
+        handlebars = { 'prettier' },
+        html = { 'prettier' },
+        javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        less = { 'prettier' },
+        scss = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        vue = { 'prettier' },
+      },
+    },
+  },
+
   { -- Filetype icons
     'echasnovski/mini.icons',
     opts = {
