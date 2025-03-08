@@ -76,9 +76,7 @@ return {
 
           -- inlay hints
           if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-            map('<leader>uh', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-            end, 'Toggle Inlay Hints')
+            Snacks.toggle.inlay_hints():map '<leader>uh'
           end
         end,
       })
