@@ -59,18 +59,18 @@ return {
           end
 
           map('<leader>cl', '<CMD>LspInfo<CR>', 'Lsp Info')
-          map('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
-          map('gr', require('telescope.builtin').lsp_references, 'References')
-          map('gI', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
-          map('gy', require('telescope.builtin').lsp_type_definitions, 'Goto T[y]pe Definition')
+          map('gd', Snacks.picker.lsp_definitions, 'Goto Definition')
+          map('gr', Snacks.picker.lsp_references, 'References')
+          map('gI', Snacks.picker.lsp_implementations, 'Goto Implementation')
+          map('gy', Snacks.picker.lsp_type_definitions, 'Goto T[y]pe Definition')
           map('K', vim.lsp.buf.hover, 'Hover')
           map('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
           map('<leader>cA', function()
             return vim.lsp.buf.code_action { apply = true, context = { only = { 'source' }, diagnostics = {} } }
           end, 'Source Action')
           map('<leader>cr', vim.lsp.buf.rename, 'Rename')
-          map('<leader>bs', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
+          map('<leader>cds', Snacks.picker.lsp_symbols, 'Document Symbols')
+          map('<leader>cws', Snacks.picker.lsp_workspace_symbols, 'Workspace Symbols')
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
 

@@ -94,9 +94,6 @@
           plenary-nvim
           refactoring-nvim
           snacks-nvim
-          telescope-fzf-native-nvim
-          telescope-nvim
-          telescope-ui-select-nvim
           toggleterm-nvim
           trouble-nvim
           ts-comments-nvim

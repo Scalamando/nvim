@@ -73,54 +73,6 @@ return {
     },
   },
 
-  { -- Fuzzy Finder (files, lsp, etc)
-    'nvim-telescope/telescope.nvim',
-    event = 'VimEnter',
-    dependencies = {
-      { 'nvim-lua/plenary.nvim' },
-      { 'nvim-telescope/telescope-fzf-native.nvim' },
-      { 'nvim-telescope/telescope-ui-select.nvim' },
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
-    },
-    config = function()
-      require('telescope').setup {
-        extensions = {
-          ['ui-select'] = {
-            require('telescope.themes').get_dropdown(),
-          },
-        },
-      }
-
-      -- Enable Telescope extensions if they are installed
-      pcall(require('telescope').load_extension, 'fzf')
-      pcall(require('telescope').load_extension, 'ui-select')
-      pcall(require('telescope').load_extension, 'refactoring')
-
-      local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Search Help' })
-      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Search Keymaps' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = 'Search Select Telescope' })
-      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Search current Word' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Search Diagnostics' })
-      vim.keymap.set('n', '<leader>s.', builtin.resume, { desc = 'Search Resume ("." for repeat)' })
-      vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Search existing Buffers' })
-      vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = 'Search Files' })
-      vim.keymap.set('n', '<leader>/', builtin.live_grep, { desc = 'Search by Grep' })
-      vim.keymap.set('n', '<leader>s/', function()
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-        })
-      end, { desc = 'Search by Grep in current buffer' })
-      vim.keymap.set('n', '<leader>sg', function()
-        builtin.live_grep {
-          grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
-        }
-      end, { desc = 'Search by Grep in Open Files' })
-    end,
-  },
-
   { -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
     'folke/noice.nvim',
     event = 'VeryLazy',
@@ -168,7 +120,7 @@ return {
       { "<leader>snh", function() require("noice").cmd("history") end, desc = "Noice History" },
       { "<leader>sna", function() require("noice").cmd("all") end, desc = "Noice All" },
       { "<leader>snd", function() require("noice").cmd("dismiss") end, desc = "Dismiss All" },
-      { "<leader>snt", function() require("noice").cmd("pick") end, desc = "Noice Picker (Telescope/FzfLua)" },
+      { "<leader>snt", function() require("noice").cmd("pick") end, desc = "Noice Picker" },
       { "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true, expr = true, desc = "Scroll Forward", mode = {"i", "n", "s"} },
       { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll Backward", mode = {"i", "n", "s"}},
     },
@@ -195,11 +147,107 @@ return {
       scope = { enabled = true },
       statuscolumn = { enabled = false }, -- we set this in options.lua
       words = { enabled = true },
+      picker = {
+        layout = { preset = 'ivy', cycle = false },
+        matcher = { frecency = true },
+        win = {
+          input = {
+            keys = {
+              ['<Esc>'] = { 'close', mode = { 'n', 'i' } },
+              ['J'] = { 'preview_scroll_down', mode = { 'i', 'n' } },
+              ['K'] = { 'preview_scroll_up', mode = { 'i', 'n' } },
+              ['H'] = { 'preview_scroll_left', mode = { 'i', 'n' } },
+              ['L'] = { 'preview_scroll_right', mode = { 'i', 'n' } },
+            },
+          },
+        },
+        formatters = {
+          file = {
+            filename_first = true,
+            truncate = 80,
+          },
+        },
+        previewers = {
+          diff = {
+            builtin = true,
+            cmd = { 'delta' },
+          },
+        },
+      },
     },
-    -- stylua: ignore
     keys = {
-      { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
-      { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+      {
+        '<leader>n',
+        function()
+          Snacks.notifier.show_history()
+        end,
+        desc = 'Notification History',
+      },
+      {
+        '<leader>un',
+        function()
+          Snacks.notifier.hide()
+        end,
+        desc = 'Dismiss All Notifications',
+      },
+      -- File picker
+      {
+        '<leader><space>',
+        function()
+          Snacks.picker.files {
+            finder = 'files',
+            format = 'file',
+            show_empty = true,
+            hidden = true,
+            supports_live = true,
+          }
+        end,
+        desc = 'Find Files',
+      },
+      -- File grep
+      {
+        '<leader>/',
+        function()
+          Snacks.picker.grep {
+            finder = 'grep',
+            format = 'file',
+            regex = true,
+            hidden = true,
+            live = true,
+            supports_live = true,
+            show_empty = true,
+          }
+        end,
+        desc = 'Grep Files',
+      },
+      -- Navigate buffers
+      {
+        '<S-h>',
+        function()
+          Snacks.picker.buffers {
+            -- Always start buffers picker in normal mode
+            on_show = function()
+              vim.cmd.stopinsert()
+            end,
+            finder = 'buffers',
+            format = 'buffer',
+            hidden = false,
+            unloaded = true,
+            current = true,
+            sort_lastused = true,
+            win = {
+              input = {
+                keys = {
+                  ['d'] = 'bufdelete',
+                },
+              },
+              list = { keys = { ['d'] = 'bufdelete' } },
+            },
+            layout = 'ivy',
+          }
+        end,
+        desc = 'Find Buffers',
+      },
     },
   },
 }

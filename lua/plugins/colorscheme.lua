@@ -16,7 +16,6 @@ return {
       snacks = true,
       treesitter = true,
       which_key = true,
-      telescope = true,
     },
   },
   config = function(_, opts)
