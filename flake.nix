@@ -109,8 +109,7 @@
 
       extraPython3Packages = {};
 
-      extraLuaPackages = {
-      };
+      extraLuaPackages = {};
     };
 
     packageDefinitions = {
@@ -123,7 +122,6 @@
           general = true;
           gitPlugins = true;
           customPlugins = true;
-          neonixdev = true;
         };
       };
     };
@@ -146,8 +144,7 @@
           name = defaultPackageName;
           packages = [defaultPackage];
           inputsFrom = [];
-          shellHook = ''
-          '';
+          shellHook = '''';
         };
       };
     })
