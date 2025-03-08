@@ -101,6 +101,7 @@
           toggleterm-nvim
           trouble-nvim
           ts-comments-nvim
+          typst-preview-nvim
           vim-sleuth
           which-key-nvim
         ];
