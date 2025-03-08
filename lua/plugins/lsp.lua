@@ -152,6 +152,7 @@ return {
           enabled = true,
         },
       },
+      signature = { enabled = true },
       snippets = {
         preset = 'luasnip',
       },
