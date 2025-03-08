@@ -74,7 +74,6 @@
           grug-far-nvim
           lazy-nvim
           lazydev-nvim
-          lazygit-nvim
           luasnip
           mini-ai
           mini-icons

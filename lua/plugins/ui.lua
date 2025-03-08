@@ -143,10 +143,24 @@ return {
     opts = {
       indent = { enabled = true },
       input = { enabled = true },
-      notifier = { enabled = true },
       scope = { enabled = true },
       statuscolumn = { enabled = false }, -- we set this in options.lua
       words = { enabled = true },
+      image = { enabled = true },
+      notifier = {
+        enabled = true,
+        top_down = false,
+      },
+      lazygit = {
+        enabled = true,
+        theme = {
+          selectedLineBgColor = { bg = 'CursorLine' },
+        },
+        win = {
+          width = 0,
+          height = 0,
+        },
+      },
       picker = {
         layout = { preset = 'ivy', cycle = false },
         matcher = { frecency = true },
@@ -189,6 +203,14 @@ return {
           Snacks.notifier.hide()
         end,
         desc = 'Dismiss All Notifications',
+      },
+      -- Lazygit
+      {
+        '<leader>gg',
+        function()
+          Snacks.lazygit()
+        end,
+        desc = 'LazyGit',
       },
       -- File picker
       {
