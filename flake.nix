@@ -39,8 +39,10 @@
           marksman
           nixd
           tailwindcss-language-server
+          tinymist
           vtsls
           vue-language-server
+          websocat
           # formatters and linters
           alejandra
           clang-tools
