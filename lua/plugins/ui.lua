@@ -56,6 +56,13 @@ return {
     end,
   },
 
+  { -- cursor animations
+    'sphamba/smear-cursor.nvim',
+    opts = {
+      smear_between_buffers = false,
+    },
+  },
+
   { -- Terminal
     'akinsho/toggleterm.nvim',
     ---@type ToggleTermConfig

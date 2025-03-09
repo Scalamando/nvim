@@ -104,6 +104,7 @@
           plenary-nvim
           refactoring-nvim
           render-markdown-nvim
+          smear-cursor-nvim
           snacks-nvim
           toggleterm-nvim
           trouble-nvim
