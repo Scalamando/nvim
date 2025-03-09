@@ -64,6 +64,9 @@
           stylua
           # tools
           lazygit
+          # for snacks.image
+          imagemagick
+          mermaid-cli
         ];
       };
 
