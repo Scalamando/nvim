@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    "plugins-obsidian-nvim" = {
+      url = "github:obsidian-nvim/obsidian.nvim";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -105,7 +109,12 @@
           vim-sleuth
           which-key-nvim
         ];
-        gitPlugins = with pkgs.neovimPlugins; [];
+        gitPlugins = with pkgs.neovimPlugins; [
+          {
+            name = "obsidian.nvim";
+            plugin = obsidian-nvim;
+          }
+        ];
       };
 
       environmentVariables = {};
