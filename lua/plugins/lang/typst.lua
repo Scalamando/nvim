@@ -28,15 +28,17 @@ return {
 
   {
     'chomosuke/typst-preview.nvim',
+    lazy = true,
     ft = 'typst',
     keys = {
-      { '<leader>tp', '<cmd>TypstPreview<CR>', desc = 'Start preview' },
+      { '<leader>tp', '<cmd>TypstPreview<CR>', desc = 'Start preview', ft = 'typst' },
       {
         '<leader>tm',
         function()
           vim.lsp.buf.execute_command { command = 'tinymist.pinMain', arguments = { vim.api.nvim_buf_get_name(0) } }
         end,
         desc = 'Pin current file as main',
+        ft = 'typst',
       },
     },
     opts = {
