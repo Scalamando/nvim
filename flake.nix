@@ -37,6 +37,7 @@
           universal-ctags
           xclip
           # lsps
+          emmet-language-server
           gopls
           intelephense
           lua-language-server
