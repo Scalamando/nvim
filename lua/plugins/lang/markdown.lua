@@ -62,6 +62,13 @@ return {
         ft = 'markdown',
       },
       {
+        '<leader>ou',
+        '<cmd>ObsidianLinkNew<CR>',
+        desc = 'Create and link note from selection',
+        mode = { 'v' },
+        ft = 'markdown',
+      },
+      {
         '<leader>od',
         '<cmd>ObsidianToday<CR>',
         desc = 'Open daily note',
