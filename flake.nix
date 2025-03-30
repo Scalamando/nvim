@@ -59,7 +59,7 @@
           nodePackages.prettier
           vscode-langservers-extracted
           php84Packages.php-codesniffer
-          php84Packages.php-cs-fixer
+            #php84Packages.php-cs-fixer
           rubyfmt
           stylua
           # tools
