@@ -56,7 +56,6 @@
           gotools
           impl
           just
-          nodejs_20
           nodePackages.prettier
           vscode-langservers-extracted
           php84Packages.php-codesniffer
