@@ -37,6 +37,7 @@
           universal-ctags
           xclip
           # lsps
+          astro-language-server
           emmet-language-server
           gopls
           intelephense

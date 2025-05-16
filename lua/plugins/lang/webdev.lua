@@ -5,6 +5,7 @@ return {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
+        astro = { },
         -- Vue
         volar = {
           init_options = {
