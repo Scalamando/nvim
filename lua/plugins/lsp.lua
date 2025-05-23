@@ -69,8 +69,8 @@ return {
             return vim.lsp.buf.code_action { apply = true, context = { only = { 'source' }, diagnostics = {} } }
           end, 'Source Action')
           map('<leader>cr', vim.lsp.buf.rename, 'Rename')
-          map('<leader>cds', Snacks.picker.lsp_symbols, 'Document Symbols')
-          map('<leader>cws', Snacks.picker.lsp_workspace_symbols, 'Workspace Symbols')
+          map('<leader>ccd', Snacks.picker.lsp_symbols, 'Document Symbols')
+          map('<leader>ccw', Snacks.picker.lsp_workspace_symbols, 'Workspace Symbols')
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
 
