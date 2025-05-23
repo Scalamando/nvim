@@ -38,6 +38,7 @@
           xclip
           # lsps
           astro-language-server
+          basedpyright
           emmet-language-server
           gopls
           intelephense
@@ -58,11 +59,12 @@
           impl
           just
           nodePackages.prettier
-          vscode-langservers-extracted
           php84Packages.php-codesniffer
-            #php84Packages.php-cs-fixer
           rubyfmt
+          ruff
+          sqruff
           stylua
+          vscode-langservers-extracted
           # tools
           lazygit
           # for snacks.image
