@@ -1,7 +1,7 @@
 return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
-    event = 'LazyFile',
+    event = 'BufReadPre',
     opts = function()
       ---@class PluginLspOpts
       local ret = {
