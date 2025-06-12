@@ -33,7 +33,7 @@ return {
     lazy = true,
     cmd = { 'Outline', 'OutlineOpen' },
     keys = {
-      { '<leader>co', '<cmd>Outline<CR>', desc = 'Toggle outline' },
+      { '<leader>cO', '<cmd>Outline<CR>', desc = 'Toggle outline' },
     },
     opts = {
       auto_jump = true,
