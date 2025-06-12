@@ -7,7 +7,7 @@ return {
       servers = {
         astro = { },
         -- Vue
-        volar = {
+        vue_ls = {
           init_options = {
             vue = {
               hybridMode = true,
