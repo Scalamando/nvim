@@ -145,6 +145,17 @@
           customPlugins = true;
         };
       };
+      nvim-dev = {...}: {
+        settings = {
+          wrapRc = false;
+          aliases = ["videv"];
+        };
+        categories = {
+          general = true;
+          gitPlugins = true;
+          customPlugins = true;
+        };
+      };
     };
     defaultPackageName = "nvim";
   in
