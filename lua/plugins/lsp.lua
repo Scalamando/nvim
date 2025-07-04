@@ -60,23 +60,23 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('config_lsp_attach', { clear = true }),
         callback = function(event)
-          local map = function(keys, func, desc, mapopts)
-            vim.keymap.set('n', keys, func, vim.tbl_extend('force', { buffer = event.buf, desc = desc }, mapopts or {}))
+          local map = function(mode, keys, func, desc, mapopts)
+            vim.keymap.set(mode, keys, func, vim.tbl_extend('force', { buffer = event.buf, desc = desc }, mapopts or {}))
           end
 
-          map('<leader>cl', '<CMD>LspInfo<CR>', 'Lsp Info')
-          map('gd', Snacks.picker.lsp_definitions, 'Goto Definition')
-          map('gr', Snacks.picker.lsp_references, 'References', { nowait = true })
-          map('gI', Snacks.picker.lsp_implementations, 'Goto Implementation')
-          map('gy', Snacks.picker.lsp_type_definitions, 'Goto T[y]pe Definition')
-          map('K', vim.lsp.buf.hover, 'Hover')
-          map('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
-          map('<leader>cA', function()
+          map('n', '<leader>cl', '<CMD>LspInfo<CR>', 'Lsp Info')
+          map('n', 'gd', Snacks.picker.lsp_definitions, 'Goto Definition')
+          map('n', 'gr', Snacks.picker.lsp_references, 'References', { nowait = true })
+          map('n', 'gI', Snacks.picker.lsp_implementations, 'Goto Implementation')
+          map('n', 'gy', Snacks.picker.lsp_type_definitions, 'Goto T[y]pe Definition')
+          map('n', 'K', vim.lsp.buf.hover, 'Hover')
+          map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, 'Code Action')
+          map({ 'n', 'v' }, '<leader>cA', function()
             return vim.lsp.buf.code_action { apply = true, context = { only = { 'source' }, diagnostics = {} } }
           end, 'Source Action')
-          map('<leader>cr', vim.lsp.buf.rename, 'Rename')
-          map('<leader>ccd', Snacks.picker.lsp_symbols, 'Document Symbols')
-          map('<leader>ccw', Snacks.picker.lsp_workspace_symbols, 'Workspace Symbols')
+          map('n', '<leader>cr', vim.lsp.buf.rename, 'Rename')
+          map('n', '<leader>ccd', Snacks.picker.lsp_symbols, 'Document Symbols')
+          map('n', '<leader>ccw', Snacks.picker.lsp_workspace_symbols, 'Workspace Symbols')
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
 
