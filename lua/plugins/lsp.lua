@@ -3,6 +3,13 @@ return {
     'neovim/nvim-lspconfig',
     event = 'BufReadPre',
     opts = function()
+      local diagnostic_icons = {
+        ERROR = ' ',
+        WARN = ' ',
+        HINT = ' ',
+        INFO = ' ',
+      }
+
       ---@class PluginLspOpts
       local ret = {
         -- options for vim.diagnostic.config()
@@ -13,15 +20,21 @@ return {
           virtual_text = {
             spacing = 4,
             source = 'if_many',
-            prefix = 'icons',
+            prefix = function(diagnostic)
+              for d, icon in pairs(diagnostic_icons) do
+                if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
+                  return icon
+                end
+              end
+            end,
           },
           severity_sort = true,
           signs = {
             text = {
-              [vim.diagnostic.severity.ERROR] = ' ',
-              [vim.diagnostic.severity.WARN] = ' ',
-              [vim.diagnostic.severity.HINT] = ' ',
-              [vim.diagnostic.severity.INFO] = ' ',
+              [vim.diagnostic.severity.ERROR] = diagnostic_icons.ERROR,
+              [vim.diagnostic.severity.WARN] = diagnostic_icons.WARN,
+              [vim.diagnostic.severity.HINT] = diagnostic_icons.HINT,
+              [vim.diagnostic.severity.INFO] = diagnostic_icons.INFO,
             },
           },
         },
@@ -80,6 +93,9 @@ return {
           end
         end,
       })
+
+      -- setup diagnostics
+      vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
       local capabilities = vim.tbl_deep_extend(
         'force',
