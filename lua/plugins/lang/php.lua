@@ -3,7 +3,11 @@ return {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
-        intelephense = {},
+        intelephense = {
+          init_options = {
+            licenceKey = os.getenv("INTELEPHENSE_KEY")
+          }
+        },
       },
     },
   },
