@@ -3,13 +3,6 @@ return {
     'neovim/nvim-lspconfig',
     event = 'BufReadPre',
     opts = function()
-      local diagnostic_icons = {
-        ERROR = ' ',
-        WARN = ' ',
-        HINT = ' ',
-        INFO = ' ',
-      }
-
       ---@class PluginLspOpts
       local ret = {
         -- options for vim.diagnostic.config()
@@ -21,7 +14,7 @@ return {
             spacing = 4,
             source = 'if_many',
             prefix = function(diagnostic)
-              for d, icon in pairs(diagnostic_icons) do
+              for d, icon in pairs(MyNeovim.icons.diagnostics) do
                 if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
                   return icon
                 end
@@ -31,10 +24,10 @@ return {
           severity_sort = true,
           signs = {
             text = {
-              [vim.diagnostic.severity.ERROR] = diagnostic_icons.ERROR,
-              [vim.diagnostic.severity.WARN] = diagnostic_icons.WARN,
-              [vim.diagnostic.severity.HINT] = diagnostic_icons.HINT,
-              [vim.diagnostic.severity.INFO] = diagnostic_icons.INFO,
+              [vim.diagnostic.severity.ERROR] = MyNeovim.icons.diagnostics.ERROR,
+              [vim.diagnostic.severity.WARN] = MyNeovim.icons.diagnostics.WARN,
+              [vim.diagnostic.severity.HINT] = MyNeovim.icons.diagnostics.HINT,
+              [vim.diagnostic.severity.INFO] = MyNeovim.icons.diagnostics.INFO,
             },
           },
         },
