@@ -67,13 +67,13 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('config_lsp_attach', { clear = true }),
         callback = function(event)
-          local map = function(keys, func, desc)
-            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = desc })
+          local map = function(keys, func, desc, mapopts)
+            vim.keymap.set('n', keys, func, vim.tbl_extend('force', { buffer = event.buf, desc = desc }, mapopts or {}))
           end
 
           map('<leader>cl', '<CMD>LspInfo<CR>', 'Lsp Info')
           map('gd', Snacks.picker.lsp_definitions, 'Goto Definition')
-          map('gr', Snacks.picker.lsp_references, 'References')
+          map('gr', Snacks.picker.lsp_references, 'References', { nowait = true })
           map('gI', Snacks.picker.lsp_implementations, 'Goto Implementation')
           map('gy', Snacks.picker.lsp_type_definitions, 'Goto T[y]pe Definition')
           map('K', vim.lsp.buf.hover, 'Hover')
