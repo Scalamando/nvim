@@ -1,11 +1,23 @@
 local util = require 'util'
 
 return {
+  { -- JSON Schema
+    'b0o/SchemaStore.nvim',
+  },
+
   { -- typescript lsp
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
-        astro = { },
+        jsonls = {
+          settings = {
+            json = {
+              schemas = require("schemastore").json.schemas(),
+              validate = { enable = true },
+            }
+          }
+        },
+        astro = {},
         -- Vue
         vue_ls = {
           init_options = {

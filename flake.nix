@@ -75,6 +75,7 @@
 
       startupPlugins = {
         general = with pkgs.vimPlugins; [
+          SchemaStore-nvim
           blink-cmp
           blink-compat
           catppuccin-nvim
