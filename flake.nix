@@ -39,11 +39,14 @@
           # lsps
           astro-language-server
           basedpyright
+          docker-compose-language-service
+          dockerfile-language-server-nodejs
           emmet-language-server
           gopls
           intelephense
           lua-language-server
           marksman
+          neocmakelsp
           nixd
           tailwindcss-language-server
           tinymist
