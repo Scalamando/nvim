@@ -70,7 +70,6 @@
           vscode-langservers-extracted
           # tools
           lazygit
-          vectorcode
           # for snacks.image
           imagemagick
           mermaid-cli
