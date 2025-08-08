@@ -19,22 +19,7 @@ return {
         },
         astro = {},
         -- Vue
-        vue_ls = {
-          init_options = {
-            vue = {
-              hybridMode = true,
-            },
-            typescript = {
-              tsdk = vim.fs.dirname(vim.fn.exepath 'vtsls') .. '/../lib/vtsls-language-server/node_modules/typescript/lib',
-            },
-          },
-          on_new_config = function(new_config, new_root_dir)
-            local lib_path = vim.fs.find('node_modules/typescript/lib', { path = new_root_dir, upward = true })[1]
-            if lib_path then
-              new_config.init_options.typescript.tsdk = lib_path
-            end
-          end,
-        },
+        vue_ls = {},
         -- Tailwindcss
         tailwindcss = {
           settings = {
@@ -74,7 +59,7 @@ return {
                 globalPlugins = {
                   {
                     name = '@vue/typescript-plugin',
-                    location = vim.fs.dirname(vim.fn.exepath 'vue-language-server') .. '/../lib/node_modules/@vue/language-server',
+                    location = vim.fs.dirname(vim.fn.exepath 'vue-language-server') .. '/../lib/language-tools/packages/language-server',
                     languages = { 'vue' },
                     configNamespace = 'typescript',
                     enableForWorkspaceTypeScriptVersions = true,
