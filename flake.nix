@@ -80,6 +80,7 @@
           blink-compat
           catppuccin-nvim
           codecompanion-nvim
+          codecompanion-history-nvim
           conform-nvim
           friendly-snippets
           fugitive

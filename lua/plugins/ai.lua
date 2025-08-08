@@ -4,6 +4,7 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
+      'ravitemer/codecompanion-history.nvim',
     },
     lazy = false,
     keys = {
@@ -46,6 +47,30 @@ return {
             },
           })
         end,
+      },
+      extensions = {
+        history = {
+          enabled = true,
+          opts = {
+            -- Memory system (requires VectorCode CLI)
+            memory = {
+              -- Automatically index summaries when they are generated
+              auto_create_memories_on_summary_generation = true,
+              -- Path to the VectorCode executable
+              vectorcode_exe = 'vectorcode',
+              -- Tool configuration
+              tool_opts = {
+                -- Default number of memories to retrieve
+                default_num = 10,
+              },
+              -- Enable notifications for indexing progress
+              notify = true,
+              -- Index all existing memories on startup
+              -- (requires VectorCode 0.6.12+ for efficient incremental indexing)
+              index_on_startup = false,
+            },
+          },
+        },
       },
     },
   },
