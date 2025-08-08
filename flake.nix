@@ -67,6 +67,7 @@
           vscode-langservers-extracted
           # tools
           lazygit
+          vectorcode
           # for snacks.image
           imagemagick
           mermaid-cli
@@ -81,6 +82,7 @@
           catppuccin-nvim
           codecompanion-nvim
           codecompanion-history-nvim
+          vectorcode-nvim
           conform-nvim
           friendly-snippets
           fugitive
