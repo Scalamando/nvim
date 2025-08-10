@@ -45,6 +45,13 @@ return {
             env = {
               api_key = os.getenv 'OPENAI_API_KEY',
             },
+            schema = {
+              model = {
+                choices = {
+                  ['gpt-5'] = { opts = { has_vision = true, can_reason = true } },
+                },
+              },
+            },
           })
         end,
       },
