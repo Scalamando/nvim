@@ -41,27 +41,22 @@ return {
         inline = { adapter = 'anthropic' },
       },
       adapters = {
-        anthropic = function()
-          return require('codecompanion.adapters').extend('anthropic', {
-            env = {
-              api_key = os.getenv 'ANTHROPIC_API_KEY',
-            },
-          })
-        end,
-        openai = function()
-          return require('codecompanion.adapters').extend('openai', {
-            env = {
-              api_key = os.getenv 'OPENAI_API_KEY',
-            },
-            schema = {
-              model = {
-                choices = {
-                  ['gpt-5'] = { opts = { has_vision = true, can_reason = true } },
-                },
+        http = {
+          anthropic = function()
+            return require('codecompanion.adapters').extend('anthropic', {
+              env = {
+                api_key = os.getenv 'ANTHROPIC_API_KEY',
               },
-            },
-          })
-        end,
+            })
+          end,
+          openai = function()
+            return require('codecompanion.adapters').extend('openai', {
+              env = {
+                api_key = os.getenv 'OPENAI_API_KEY',
+              },
+            })
+          end,
+        },
       },
       extensions = {
         history = {
