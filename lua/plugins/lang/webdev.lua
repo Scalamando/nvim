@@ -68,6 +68,7 @@ return {
               },
             },
             typescript = {
+              tsserver = { maxTsServerMemory = 8192 },
               updateImportsOnFileMove = { enabled = 'always' },
               suggest = {
                 completeFunctionCalls = true,
