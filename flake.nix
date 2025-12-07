@@ -56,6 +56,7 @@
           # formatters and linters
           alejandra
           clang-tools
+          gdtoolkit_4
           gofumpt
           gomodifytags
           gotools

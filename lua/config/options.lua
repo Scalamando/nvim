@@ -2,6 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = nixCats 'have_nerd_font'
+vim.g.godot_executable = os.execute("which godot")
 
 local opt = vim.opt
 
