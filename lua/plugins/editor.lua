@@ -38,6 +38,11 @@ return {
         bind_to_cwd = false,
         follow_current_file = { enabled = true },
         use_libuv_file_watcher = true,
+        filtered_items = {
+          always_show_by_pattern = {
+            '.env*',
+          },
+        },
       },
       window = {
         position = 'float',
@@ -72,6 +77,14 @@ return {
       -- Handle move/rename events with snacks.rename
       local events = require 'neo-tree.events'
       opts.event_handlers = opts.event_handlers or {}
+
+      local UGodot = require 'util.godot'
+      local is_godot = UGodot.is_godot_project(vim.fn.getcwd())
+      -- Godot specific hidden files
+      if is_godot then
+        opts.filesystem.filtered_items.hide_by_pattern = vim.list_extend(opts.filesystem.filtered_items.hide_by_pattern or {}, { '*.uid', '*.import', '*.blend1' })
+        opts.filesystem.filtered_items.hide_by_name = vim.list_extend(opts.filesystem.filtered_items.hide_by_name or {}, { 'server.pipe' })
+      end
 
       local function on_move(data)
         Snacks.rename.on_rename_file(data.source, data.destination)
