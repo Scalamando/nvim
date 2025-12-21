@@ -82,7 +82,8 @@ return {
       local is_godot = UGodot.is_godot_project(vim.fn.getcwd())
       -- Godot specific hidden files
       if is_godot then
-        opts.filesystem.filtered_items.hide_by_pattern = vim.list_extend(opts.filesystem.filtered_items.hide_by_pattern or {}, { '*.uid', '*.import', '*.blend1' })
+        opts.filesystem.filtered_items.hide_by_pattern =
+          vim.list_extend(opts.filesystem.filtered_items.hide_by_pattern or {}, { '*.uid', '*.import', '*.blend1' })
         opts.filesystem.filtered_items.hide_by_name = vim.list_extend(opts.filesystem.filtered_items.hide_by_name or {}, { 'server.pipe' })
       end
 
@@ -281,6 +282,25 @@ return {
         end,
         desc = 'Next Trouble/Quickfix Item',
       },
+    },
+  },
+
+  {
+    'christoomey/vim-tmux-navigator',
+    cmd = {
+      'TmuxNavigateLeft',
+      'TmuxNavigateDown',
+      'TmuxNavigateUp',
+      'TmuxNavigateRight',
+      'TmuxNavigatePrevious',
+      'TmuxNavigatorProcessList',
+    },
+    keys = {
+      { '<C-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
+      { '<C-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
+      { '<C-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
+      { '<C-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
+      { '<C-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
     },
   },
 }

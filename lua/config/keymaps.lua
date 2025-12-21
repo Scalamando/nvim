@@ -30,10 +30,10 @@ map('v', '<', '<gv', { expr = true, silent = true })
 map('v', '>', '>gv', { expr = true, silent = true })
 
 -- Windows
-map('n', '<C-h>', '<C-w><C-h>', { desc = 'Go to Left Window', remap = true })
-map('n', '<C-l>', '<C-w><C-l>', { desc = 'Go to Right Window', remap = true })
-map('n', '<C-k>', '<C-w><C-k>', { desc = 'Go to Upper Window', remap = true })
-map('n', '<C-j>', '<C-w><C-j>', { desc = 'Go to Lower Window', remap = true })
+-- map('n', '<C-h>', '<C-w><C-h>', { desc = 'Go to Left Window', remap = true })
+-- map('n', '<C-l>', '<C-w><C-l>', { desc = 'Go to Right Window', remap = true })
+-- map('n', '<C-k>', '<C-w><C-k>', { desc = 'Go to Upper Window', remap = true })
+-- map('n', '<C-j>', '<C-w><C-j>', { desc = 'Go to Lower Window', remap = true })
 -- Resize
 map('n', '<C-Left>', '<CMD>vertical resize -2<CR>', { desc = 'Decrease Window Width' })
 map('n', '<C-Right>', '<CMD>vertical resize +2<CR>', { desc = 'Increase Window Width' })

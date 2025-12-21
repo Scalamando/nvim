@@ -121,6 +121,7 @@
           ts-comments-nvim
           typst-preview-nvim
           vim-sleuth
+          vim-tmux-navigator
           which-key-nvim
         ];
         gitPlugins = with pkgs.neovimPlugins; [
