@@ -179,6 +179,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-vue-language-server": {
+      "locked": {
+        "lastModified": 1766839274,
+        "narHash": "sha256-3WYpaJnYVMXKG2PaSTYRvcTFFdEOFD60sATtant6wKk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5fff851a4bacfd933978b8c39cecbed08c8a77c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5fff851a4bacfd933978b8c39cecbed08c8a77c7",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1769461804,
@@ -199,7 +215,8 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-vue-language-server": "nixpkgs-vue-language-server"
       }
     },
     "systems": {

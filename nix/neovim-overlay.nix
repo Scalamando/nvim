@@ -126,6 +126,8 @@ with final.pkgs.lib; let
     lazygit
   ];
 in {
+  vue-language-server = final.callPackage (inputs.nixpkgs-vue-language-server + "/pkgs/by-name/vu/vue-language-server/package.nix") {};
+
   # This is the neovim derivation
   # returned by the overlay
   nvim-pkg = mkNeovim {
