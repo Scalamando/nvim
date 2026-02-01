@@ -122,10 +122,23 @@ vim.filetype.add({
 })
 
 -- Load configured LSPs
-local lsp_configs = {}
-for _, f in pairs(vim.fn.glob(vim.fn.stdpath('config') .. '/lsp/*.lua', false, true)) do
-  local server_name = vim.fn.fnamemodify(f, ':t:r')
-  table.insert(lsp_configs, server_name)
-end
-
+local lsp_configs = {
+  'astro',
+  'basedpyright',
+  'docker_compose_language_service',
+  'dockerls',
+  'emmet_language_server',
+  'gopls',
+  'intelephense',
+  'jsonls',
+  'lua_ls',
+  'marksman',
+  'nixd',
+  'ruff',
+  'sqruff',
+  'tailwindcss',
+  'tinymist',
+  'vtsls',
+  'vue_ls',
+}
 vim.lsp.enable(lsp_configs)
