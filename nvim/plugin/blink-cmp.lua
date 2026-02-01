@@ -5,7 +5,7 @@ if vim.g.did_load_blinkcmp_plugin then
 end
 vim.g.did_load_blinkcmp_plugin = true
 
-require("luasnip.loaders.from_vscode").lazy_load()
+require('luasnip.loaders.from_vscode').lazy_load()
 
 require('blink.cmp').setup {
   keymap = {
@@ -50,8 +50,8 @@ require('blink.cmp').setup {
               local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
               return hl
             end,
-          }
-        }
+          },
+        },
       },
     },
     documentation = {

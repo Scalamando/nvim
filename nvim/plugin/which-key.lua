@@ -37,8 +37,8 @@ require('which-key').setup {
         end,
       },
       -- better descriptions
-      { 'gx',        desc = 'Open with system app' },
-      { '\\',        desc = 'Open NeoTree' },
+      { 'gx', desc = 'Open with system app' },
+      { '\\', desc = 'Open NeoTree' },
       -- typst
       { '<leader>t', group = 'typst' },
     },

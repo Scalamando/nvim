@@ -10,10 +10,7 @@ local M = {}
 ---Extends the object with capabilities provided by plugins.
 ---@return lsp.ClientCapabilities
 function M.make_client_capabilities()
-  local capabilities = require('blink.cmp').get_lsp_capabilities(
-    { workspace = { fileOperations = { didRename = true, willRename = true, }, }, },
-    true
-  )
+  local capabilities = require('blink.cmp').get_lsp_capabilities({ workspace = { fileOperations = { didRename = true, willRename = true } } }, true)
   return capabilities
 end
 

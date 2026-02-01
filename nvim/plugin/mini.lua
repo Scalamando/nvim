@@ -71,7 +71,7 @@ require('mini.ai').setup {
     u = ai.gen_spec.function_call(),
     -- without dot in function name
     U = ai.gen_spec.function_call { name_pattern = '[%w_]' },
-  }
+  },
 }
 
 -- register all text objects with which-key
@@ -147,16 +147,16 @@ require('mini.statusline').setup {
       local location = MiniStatusline.section_location { trunc_width = 75 }
 
       return MiniStatusline.combine_groups {
-        { hl = mode_hl,                 strings = { mode } },
+        { hl = mode_hl, strings = { mode } },
         { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics } },
         '%<', -- Mark general truncate point
         { hl = 'MiniStatuslineFilename', strings = { filename } },
         '%=', -- End left alignment
         { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-        { hl = mode_hl,                  strings = { location } },
+        { hl = mode_hl, strings = { location } },
       }
     end,
-  }
+  },
 }
 
 -- icons

@@ -3,7 +3,7 @@ if vim.g.did_load_gitsigns_plugin then
 end
 vim.g.did_load_gitsigns_plugin = true
 
-require 'gitsigns'.setup {
+require('gitsigns').setup {
   signs = {
     add = { text = '+' },
     change = { text = '~' },

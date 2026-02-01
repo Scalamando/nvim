@@ -4,7 +4,7 @@ end
 vim.g.did_load_neotree_plugin = true
 
 -- keymaps
-vim.keymap.set('n', '\\', '<CMD>Neotree reveal<CR>', { desc = 'Open NeoTree', })
+vim.keymap.set('n', '\\', '<CMD>Neotree reveal<CR>', { desc = 'Open NeoTree' })
 
 local function on_move(data)
   Snacks.rename.on_rename_file(data.source, data.destination)
@@ -12,11 +12,11 @@ end
 
 local events = require 'neo-tree.events'
 
-require 'neo-tree'.setup {
+require('neo-tree').setup {
   sources = { 'filesystem', 'buffers', 'git_status' },
   open_files_do_not_replace_types = { 'terminal', 'Trouble', 'trouble', 'qf', 'Outline' },
   event_handlers = {
-    { event = events.FILE_MOVED,   handler = on_move },
+    { event = events.FILE_MOVED, handler = on_move },
     { event = events.FILE_RENAMED, handler = on_move },
   },
   filesystem = {
@@ -56,7 +56,7 @@ require 'neo-tree'.setup {
         staged = '󰱒',
       },
     },
-  }
+  },
 }
 
 vim.api.nvim_create_autocmd('TermClose', {

@@ -5,22 +5,12 @@ if vim.g.did_load_conform_plugin then
 end
 vim.g.did_load_conform_plugin = true
 
-vim.keymap.set(
-  { 'n', 'v' },
-  '<leader>cf',
-  function()
-    require('conform').format { async = true }
-  end,
-  { desc = 'Format Code', }
-)
-vim.keymap.set(
-  { 'n', 'v' },
-  '<leader>cF',
-  function()
-    require('conform').format { formatters = { 'injected' }, timeout_ms = 3000 }
-  end,
-  { desc = 'Format Injected Langs', }
-)
+vim.keymap.set({ 'n', 'v' }, '<leader>cf', function()
+  require('conform').format { async = true }
+end, { desc = 'Format Code' })
+vim.keymap.set({ 'n', 'v' }, '<leader>cF', function()
+  require('conform').format { formatters = { 'injected' }, timeout_ms = 3000 }
+end, { desc = 'Format Injected Langs' })
 
 require('conform').setup {
   default_format_opts = {
