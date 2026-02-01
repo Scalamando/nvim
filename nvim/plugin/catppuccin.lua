@@ -17,6 +17,11 @@ require('catppuccin').setup {
     treesitter = true,
     which_key = true,
   },
+  custom_highlights = function(colors)
+    return {
+      ['@lsp.type.component'] = { link = '@type' },
+    }
+  end,
 }
 
 vim.cmd.colorscheme 'catppuccin'
