@@ -61,6 +61,57 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
   end,
 })
 
+-- Activate treesitter
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    'bash',
+    'c',
+    'diff',
+    'go',
+    'javascript',
+    'lua',
+    'luadoc',
+    'markdown',
+    'markdown_inline',
+    'python',
+    'yaml',
+    'typst',
+    'tsx',
+    'toml',
+    'svelte',
+    'scss',
+    'rust',
+    'ruby',
+    'regex',
+    'prisma',
+    'php',
+    'perl',
+    'nix',
+    'make',
+    'json',
+    'json5',
+    'jsdoc',
+    'http',
+    'gomod',
+    'go-template',
+    'godot-resource',
+    'gdscript',
+    'dockerfile',
+    'css',
+    'cpp',
+    'comment',
+    'query',
+    'sql',
+    'typescript',
+    'vim',
+    'vimdoc',
+    'vue',
+  },
+  callback = function()
+    vim.treesitter.start()
+  end,
+})
+
 -- LSP
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('config_lsp_attach', { clear = true }),
