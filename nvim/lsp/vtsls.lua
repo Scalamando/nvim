@@ -58,7 +58,7 @@ return {
       local params = vim.lsp.util.make_position_params()
       lsp.execute {
         command = 'typescript.gotosourcedefinition',
-        arguments = { params.textdocument.uri, params.position },
+        arguments = { params.textDocument.uri, params.position },
         open = true,
       }
     end, { desc = 'goto source definition', buffer = true })
