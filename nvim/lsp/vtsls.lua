@@ -72,7 +72,7 @@ return {
     vim.keymap.set('n', '<leader>co', lsp.action['source.organizeimports'], { desc = 'organize imports', buffer = true })
     vim.keymap.set('n', '<leader>cm', lsp.action['source.addmissingimports.ts'], { desc = 'add missing imports', buffer = true })
     vim.keymap.set('n', '<leader>cu', lsp.action['source.removeunused.ts'], { desc = 'remove unused imports', buffer = true })
-    vim.keymap.set('n', '<leader>cd', lsp.action['source.fixall.ts'], { desc = 'fix all diagnostics', buffer = true })
+    vim.keymap.set('n', '<leader>ce', lsp.action['source.fixall.ts'], { desc = 'fix all diagnostics', buffer = true })
     vim.keymap.set('n', '<leader>cV', function()
       lsp.execute { command = 'typescript.selectTypeScriptVersion' }
     end, { desc = 'Select TS workspace version', buffer = true })
