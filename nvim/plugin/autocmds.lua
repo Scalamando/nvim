@@ -111,34 +111,3 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.treesitter.start()
   end,
 })
-
--- LSP
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('config_lsp_attach', { clear = true }),
-  callback = function(event)
-    local map = function(mode, keys, func, desc, mapopts)
-      vim.keymap.set(mode, keys, func, vim.tbl_extend('force', { buffer = event.buf, desc = desc }, mapopts or {}))
-    end
-
-    map('n', '<leader>cl', '<CMD>LspInfo<CR>', 'Lsp Info')
-    map('n', 'gd', Snacks.picker.lsp_definitions, 'Goto Definition')
-    map('n', 'gr', Snacks.picker.lsp_references, 'References', { nowait = true })
-    map('n', 'gI', Snacks.picker.lsp_implementations, 'Goto Implementation')
-    map('n', 'gy', Snacks.picker.lsp_type_definitions, 'Goto T[y]pe Definition')
-    map('n', 'K', vim.lsp.buf.hover, 'Hover')
-    map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, 'Code Action')
-    map({ 'n', 'v' }, '<leader>cA', function()
-      return vim.lsp.buf.code_action { apply = true, context = { only = { 'source' }, diagnostics = {} } }
-    end, 'Source Action')
-    map('n', '<leader>cr', vim.lsp.buf.rename, 'Rename')
-    map('n', '<leader>ccd', Snacks.picker.lsp_symbols, 'Document Symbols')
-    map('n', '<leader>ccw', Snacks.picker.lsp_workspace_symbols, 'Workspace Symbols')
-
-    local client = vim.lsp.get_client_by_id(event.data.client_id)
-
-    -- inlay hints
-    if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-      Snacks.toggle.inlay_hints():map '<leader>uh'
-    end
-  end,
-})
