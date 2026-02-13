@@ -20,7 +20,7 @@ opt.hlsearch = true -- Highlight search results
 opt.ignorecase = true -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 opt.inccommand = 'split' -- Preview substitutions live, as you type!
 opt.list = true -- Sets how neovim will display certain whitespace characters in the editor.
---opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.mouse = 'a' -- Enable mouse mode, can be useful for resizing splits for example!
 opt.number = true -- Make line numbers default
 opt.relativenumber = true -- Use relative line numbers
