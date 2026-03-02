@@ -126,17 +126,6 @@ with final.pkgs.lib; let
     lazygit
   ];
 in {
-  vue-language-server = (final.callPackage (inputs.nixpkgs + "/pkgs/by-name/vu/vue-language-server/package.nix") {}).overrideAttrs (old: {
-    preInstall = builtins.replaceStrings
-      [
-        "find -type f \\( -name \"*.ts\" -o -name \"*.map\" \\) -exec rm -rf {} +"
-      ]
-      [
-        "find -type f \\( -name \"*.ts\" ! -name \"*.d.ts\" -o -name \"*.map\" \\) -exec rm -rf {} +"
-      ]
-      old.preInstall;
-  });
-
   # This is the neovim derivation
   # returned by the overlay
   nvim-pkg = mkNeovim {
