@@ -82,7 +82,7 @@ vim.diagnostic.config {
     },
   },
   update_in_insert = false,
-  underline = true,
+  underline = { severity = { min = vim.diagnostic.severity.WARN } },
   severity_sort = true,
   float = {
     focusable = false,

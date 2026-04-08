@@ -20,6 +20,7 @@ require('which-key').setup {
       { ']', group = 'next' },
       { 'g', group = 'goto' },
       { 'gs', group = 'surround' },
+      { 'gr', group = 'lsp actions', mode = { 'n' } },
       { 'z', group = 'fold' },
       {
         '<leader>b',
