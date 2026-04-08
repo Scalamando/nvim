@@ -109,7 +109,7 @@ with final.pkgs.lib; let
     alejandra
     gofumpt
     gotools
-    nodePackages.prettier
+    prettier
     php84Packages.php-codesniffer
     rubyfmt
     ruff
