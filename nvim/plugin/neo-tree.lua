@@ -18,6 +18,14 @@ require('neo-tree').setup {
   event_handlers = {
     { event = events.FILE_MOVED, handler = on_move },
     { event = events.FILE_RENAMED, handler = on_move },
+    {
+      event = 'neo_tree_popup_input_ready',
+      ---@param args { bufnr: integer, winid: integer }
+      handler = function(args)
+        -- map <esc> to enter normal mode (by default closes prompt)
+        vim.keymap.set('i', '<esc>', vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
+      end,
+    },
   },
   filesystem = {
     bind_to_cwd = false,
