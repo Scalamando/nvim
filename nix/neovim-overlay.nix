@@ -109,6 +109,7 @@ with final.pkgs.lib; let
     alejandra
     gofumpt
     gotools
+    oxfmt
     prettier
     php84Packages.php-codesniffer
     rubyfmt

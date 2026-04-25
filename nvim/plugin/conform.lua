@@ -18,29 +18,29 @@ require('conform').setup {
     timeout_ms = 3000,
   },
   formatters_by_ft = {
-    json = { 'prettier' },
-    jsonc = { 'prettier' },
-    yaml = { 'prettier' },
+    json = { 'oxfmt', 'prettier', stop_after_first = true },
+    jsonc = { 'oxfmt', 'prettier', stop_after_first = true },
+    yaml = { 'oxfmt', 'prettier', stop_after_first = true },
     just = { 'just' },
     -- webdev
-    css = { 'prettier' },
-    graphql = { 'prettier' },
-    handlebars = { 'prettier' },
-    html = { 'prettier' },
-    javascript = { 'prettier' },
-    javascriptreact = { 'prettier' },
-    less = { 'prettier' },
-    scss = { 'prettier' },
-    typescript = { 'prettier' },
-    typescriptreact = { 'prettier' },
-    vue = { 'prettier' },
+    css = { 'oxfmt', 'prettier', stop_after_first = true },
+    graphql = { 'oxfmt', 'prettier', stop_after_first = true },
+    handlebars = { 'oxfmt', 'prettier', stop_after_first = true },
+    html = { 'oxfmt', 'prettier', stop_after_first = true },
+    javascript = { 'oxfmt', 'prettier', stop_after_first = true },
+    javascriptreact = { 'oxfmt', 'prettier', stop_after_first = true },
+    less = { 'oxfmt', 'prettier', stop_after_first = true },
+    scss = { 'oxfmt', 'prettier', stop_after_first = true },
+    typescript = { 'oxfmt', 'prettier', stop_after_first = true },
+    typescriptreact = { 'oxfmt', 'prettier', stop_after_first = true },
+    vue = { 'oxfmt', 'prettier', stop_after_first = true },
     -- golang
     go = { 'goimports', 'gofumpt' },
     -- lua
     lua = { 'stylua' },
     -- markdown
-    markdown = { 'prettier' },
-    ['markdown.mdx'] = { 'prettier' },
+    markdown = { 'oxfmt', 'prettier', stop_after_first = true },
+    ['markdown.mdx'] = { 'oxfmt', 'prettier', stop_after_first = true },
     -- nix
     nix = { 'alejandra' },
     -- php
@@ -54,5 +54,9 @@ require('conform').setup {
   },
   formatters = {
     injected = { options = { ignore_errors = true } },
+    oxfmt = {
+      cwd = require('conform.util').root_file { '.oxfmtrc.json', '.oxfmtrc.jsonc', 'oxfmt.config.ts' },
+      require_cwd = true,
+    },
   },
 }
