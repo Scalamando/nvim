@@ -122,6 +122,10 @@ with final.pkgs.lib; let
     fzf
     ripgrep
     websocat # typst preview
+    # snacks image dependencies
+    imagemagick
+    tectonic
+    mermaid-cli
     # tools
     lazygit
   ];
