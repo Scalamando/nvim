@@ -90,6 +90,7 @@ require('snacks').setup {
       selectedLineBgColor = { bg = 'CursorLine' },
     },
     win = {
+      position = 'float',
       width = 0,
       height = 0,
     },
