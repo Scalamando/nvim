@@ -62,7 +62,6 @@ with final.pkgs.lib; let
     # ^ language support
     # navigation/editing enhancement plugins
     grug-far-nvim
-    toggleterm-nvim
     neo-tree-nvim
     comment-nvim
     #vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/

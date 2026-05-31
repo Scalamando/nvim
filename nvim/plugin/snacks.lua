@@ -74,6 +74,12 @@ require('snacks').setup {
   statuscolumn = { enabled = false }, -- we set this in options.lua
   words = { enabled = true },
   image = { enabled = true },
+  terminal = {
+    win = {
+      position = 'right',
+      width = 0.4,
+    },
+  },
   notifier = {
     enabled = true,
     top_down = false,

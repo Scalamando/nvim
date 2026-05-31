@@ -8,6 +8,7 @@ require('which-key').setup {
   spec = {
     {
       mode = { 'n', 'v' },
+      { '<leader>a', group = 'ai' },
       { '<leader>c', group = 'code' },
       { '<leader>f', group = 'file' },
       { '<leader>s', group = 'search' },
