@@ -14,20 +14,20 @@ with final.pkgs.lib; let
   # otherwise it could have an incompatible signature when applying this overlay.
   pkgs-locked = inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 
-  tinymist_0_15_rc2 = prev.tinymist.overrideAttrs (finalAttrs: previousAttrs: {
-    version = "0.15.0-rc2";
+  tinymist_0_15 = prev.tinymist.overrideAttrs (finalAttrs: previousAttrs: {
+    version = "0.15.0";
 
     src = pkgs.fetchFromGitHub {
       owner = "Myriad-Dreamin";
       repo = "tinymist";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-w2ChTKZ5iszJcOSS0nJislqQb0cEGrsrlQB4AL29LJc=";
+      hash = "sha256-SfkyyszTmleWHa19jMgHjiOUvBOniVybDr9GBmtMVDw=";
     };
 
-    cargoHash = "sha256-KxkTo5zpG6xN/Et1zqpoV7dLproBOx7M5hCt3bplf40=";
+    cargoHash = "sha256-ztJb2Br0Ph2qSeo9MGm9OdU66YPkep+9lBCrL2TimB4=";
     cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
       inherit (finalAttrs) pname version src;
-      hash = "sha256-KxkTo5zpG6xN/Et1zqpoV7dLproBOx7M5hCt3bplf40=";
+      hash = "sha256-ztJb2Br0Ph2qSeo9MGm9OdU66YPkep+9lBCrL2TimB4=";
     };
 
     checkFlags =
@@ -162,7 +162,7 @@ with final.pkgs.lib; let
     lazygit
   ];
 in {
-  tinymist = tinymist_0_15_rc2;
+  tinymist = tinymist_0_15;
 
   # This is the neovim derivation
   # returned by the overlay
