@@ -14,36 +14,6 @@ with final.pkgs.lib; let
   # otherwise it could have an incompatible signature when applying this overlay.
   pkgs-locked = inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 
-  tinymist_0_15 = prev.tinymist.overrideAttrs (finalAttrs: previousAttrs: {
-    version = "0.15.0";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "Myriad-Dreamin";
-      repo = "tinymist";
-      tag = "v${finalAttrs.version}";
-      hash = "sha256-SfkyyszTmleWHa19jMgHjiOUvBOniVybDr9GBmtMVDw=";
-    };
-
-    cargoHash = "sha256-ztJb2Br0Ph2qSeo9MGm9OdU66YPkep+9lBCrL2TimB4=";
-    cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
-      inherit (finalAttrs) pname version src;
-      hash = "sha256-ztJb2Br0Ph2qSeo9MGm9OdU66YPkep+9lBCrL2TimB4=";
-    };
-
-    checkFlags =
-      previousAttrs.checkFlags
-      ++ [
-        "--skip=doc::tests::diff_v1_preview_frame_paints_generated_page"
-        "--skip=doc::tests::full_current_preview_frame_paints_generated_page_after_reset"
-        "--skip=doc::tests::page_canvas_exposes_synthetic_accesskit_link_nodes"
-        "--skip=doc::tests::page_canvas_exposes_synthetic_accesskit_text_runs"
-        "--skip=doc::tests::page_canvas_paints_selection_overlay_above_scene"
-        "--skip=doc::tests::page_canvas_paints_supplied_white_background"
-        "--skip=doc::tests::page_canvas_selects_and_copies_text"
-        "--skip=doc::tests::page_canvas_uses_pointer_cursor_over_links"
-      ];
-  });
-
   # This is the helper function that builds the Neovim derivation.
   mkNeovim = pkgs.callPackage ./mkNeovim.nix {
     inherit (pkgs-locked) wrapNeovimUnstable neovimUtils;
@@ -162,8 +132,6 @@ with final.pkgs.lib; let
     lazygit
   ];
 in {
-  tinymist = tinymist_0_15;
-
   # This is the neovim derivation
   # returned by the overlay
   nvim-pkg = mkNeovim {
